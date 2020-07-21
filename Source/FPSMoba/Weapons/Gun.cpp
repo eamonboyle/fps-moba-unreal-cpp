@@ -63,23 +63,23 @@ bool AGun::GunTrace(FHitResult& Hit, FVector& ShotDirection) const
     Params.AddIgnoredActor(GetOwner());
 
     // debug
-    DrawDebugLine(
-        GetWorld(),
-        Location,
-        LineTraceEnd,
-        FColor::Red,
-        false,
-        -1,
-        0,
-        12.333
-    );
-
-    const FName TraceTag("MyTraceTag");
-    GetWorld()->DebugDrawTraceTag = TraceTag;
-    FCollisionQueryParams CollisionParameters;
-    CollisionParameters.TraceTag = TraceTag;
-    CollisionParameters.AddIgnoredActor(this);
-    CollisionParameters.AddIgnoredActor(GetOwner());
+    // DrawDebugLine(
+    //     GetWorld(),
+    //     Location,
+    //     LineTraceEnd,
+    //     FColor::Red,
+    //     false,
+    //     -1,
+    //     0,
+    //     12.333
+    // );
+    //
+    // const FName TraceTag("MyTraceTag");
+    // GetWorld()->DebugDrawTraceTag = TraceTag;
+    // FCollisionQueryParams CollisionParameters;
+    // CollisionParameters.TraceTag = TraceTag;
+    // CollisionParameters.AddIgnoredActor(this);
+    // CollisionParameters.AddIgnoredActor(GetOwner());
 
     // return the result
     return GetWorld()->LineTraceSingleByChannel(
@@ -112,10 +112,10 @@ void AGun::PullTrigger()
     {
         UE_LOG(LogTemp, Warning, TEXT("TRACE SUCCESS"));
 
+        // hit effects
         UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, Hit.Location, ShotDirection.Rotation());
+        
+        // apply damage
+        // check ammo etc
     }
-
-    // hit effects
-    // apply damage
-    // check ammo etc
 }
