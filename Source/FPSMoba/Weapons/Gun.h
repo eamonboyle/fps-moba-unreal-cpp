@@ -102,5 +102,8 @@ private:
     UPROPERTY(EditAnywhere)
     USoundBase* ImpactSound;
 
+    
+    // functions
     AController* GetOwnerController() const;
+    bool GunTrace(FHitResult& Hit, FVector& ShotDirection) const;
 };
