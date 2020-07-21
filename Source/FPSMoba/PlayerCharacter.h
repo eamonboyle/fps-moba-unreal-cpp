@@ -38,6 +38,7 @@ private:
     void MoveForward(float AxisValue);
     void MoveRight(float AxisValue);
     void ChangePlayStyle();
+    void Shoot();
 
     UPROPERTY(VisibleAnywhere)
     TEnumAsByte<PlayStyle> CurrentPlayStyle = PlayStyle::ThirdPerson;

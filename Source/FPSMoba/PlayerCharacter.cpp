@@ -46,6 +46,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
     PlayerInputComponent->BindAction(TEXT("Jump"), IE_Pressed, this, &ACharacter::Jump);
     PlayerInputComponent->BindAction(TEXT("ChangePlayStyle"), IE_Pressed, this, &APlayerCharacter::ChangePlayStyle);
+    PlayerInputComponent->BindAction(TEXT("Shoot"), IE_Pressed, this, &APlayerCharacter::Shoot);
 }
 
 
@@ -70,5 +71,13 @@ void APlayerCharacter::ChangePlayStyle()
     else if (CurrentPlayStyle == PlayStyle::BirdsEye)
     {
         CurrentPlayStyle = PlayStyle::ThirdPerson;
+    }
+}
+
+void APlayerCharacter::Shoot()
+{
+    if (Gun != nullptr)
+    {
+        Gun->PullTrigger();
     }
 }

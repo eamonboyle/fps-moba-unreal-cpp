@@ -24,6 +24,9 @@ AGun::AGun()
 void AGun::BeginPlay()
 {
     Super::BeginPlay();
+
+    CurrentAmmo = MaxAmmo;
+    CurrentAmmoMagazine = MaxMagazineAmmo;
 }
 
 AController* AGun::GetOwnerController() const
@@ -43,4 +46,5 @@ void AGun::Tick(float DeltaTime)
 
 void AGun::PullTrigger()
 {
+    UE_LOG(LogTemp, Warning, TEXT("SHOOT"));
 }
