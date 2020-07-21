@@ -99,7 +99,7 @@ void AGun::Tick(float DeltaTime)
 
 void AGun::PullTrigger()
 {
-    UE_LOG(LogTemp, Warning, TEXT("SHOOT"));
+    // UE_LOG(LogTemp, Warning, TEXT("SHOOT"));
 
     // spawn muzzle and sound
 
@@ -110,7 +110,7 @@ void AGun::PullTrigger()
 
     if (bSuccess)
     {
-        UE_LOG(LogTemp, Warning, TEXT("TRACE SUCCESS"));
+        // UE_LOG(LogTemp, Warning, TEXT("TRACE SUCCESS"));
 
         // hit effects
         UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, Hit.Location, ShotDirection.Rotation());
